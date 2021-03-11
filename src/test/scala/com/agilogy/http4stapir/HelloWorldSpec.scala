@@ -8,7 +8,7 @@ import org.http4s.implicits._
 class HelloWorldSpec extends CatsEffectSuite {
 
   private[this] val retHelloWorld: IO[Response[IO]] = {
-    val getHW = Request[IO](Method.GET, uri"/hello?name=world")
+    val getHW = Request[IO](Method.GET, uri"/hello/world")
     val helloWorld = HelloWorld.impl[IO]
     Http4sRoutes.helloWorldRoutes[IO](helloWorld).orNotFound(getHW)
   }

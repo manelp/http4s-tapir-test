@@ -34,7 +34,7 @@ object Http4Server {
       finalHttpApp = Logger.httpApp(true, true)(httpApp)
 
       exitCode <- BlazeServerBuilder[F](global)
-        .bindHttp(8080, "0.0.0.0")
+        .bindHttp(8081, "0.0.0.0")
         .withHttpApp(finalHttpApp)
         .serve
     } yield exitCode
